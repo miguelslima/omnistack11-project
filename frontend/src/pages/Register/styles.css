@@ -28,7 +28,9 @@
 
 .register-container .content section h1 {
   margin: 64px 0 32px;
+  color: #737380;
   font-size: 32px;
+  font-weight: bold;
 }
 
 .register-container .content section p {
@@ -44,6 +46,14 @@
 
 .register-container .content form input {
   margin-top: 8px;
+}
+
+.register-container .content form input:placeholder-shown {
+  border: 1px solid red;
+}
+
+.register-container .content form input:focus {
+  border: 1px solid green;
 }
 
 .register-container .content form .input-group {

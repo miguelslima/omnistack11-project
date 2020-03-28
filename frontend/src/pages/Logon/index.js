@@ -1,13 +1,15 @@
 import React, { useState } from 'react';
 import {Link, useHistory } from 'react-router-dom';
+import styled from 'styled-components';
+
 import { FiLogIn } from 'react-icons/fi';
 
 import api from '../../services/api';
 
-import './styles.css';
+import '../../styles/global.js'
 
 import logoImg from '../../assets/logo.svg';
-import heroesImg from '../../assets/heroes.png';
+import heroesImg from '../../assets/heroes.png'
 
 export default function Logon() {
   const [id, setId] = useState('');
@@ -28,16 +30,24 @@ export default function Logon() {
     }
   }
 
+  const Theme = styled.body`
+    background: ${props => props.theme.theme.background};
+  `
+    
   return (
-    <div className="logon-container">
+    
+    <Theme>        
+      <div className="logon-container">
       <section className="form">
         <img src={logoImg} alt="Be The Hero"/>
 
         <form onSubmit={handleLogin}>
-          <h1>Faça seu logon</h1>
-
+          <div className="theme">
+            <h1>Faça seu logon</h1>
+          </div>
           <input 
             placeholder="Sua ID" 
+            autoFocus
             value={id}
             onChange={e => setId(e.target.value)}
           />
@@ -51,6 +61,7 @@ export default function Logon() {
       </section>
 
       <img src={heroesImg} alt="Heroes"/>
-    </div>
+      </div>
+    </Theme>
   );
 }

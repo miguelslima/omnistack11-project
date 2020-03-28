@@ -6,10 +6,11 @@ import Register from './pages/Register';
 import Profile from './pages/Profile';
 import NewIncident from './pages/NewIncident';
 
-export default function Routes() {
-  return (
-    <BrowserRouter>
+const Routes = ({ theme }) => (
+  <BrowserRouter>
+  
       <Switch>
+      {console.log(theme)}
         <Route path="/" exact component={Logon} />
         <Route path="/register" component={Register} />
 
@@ -18,4 +19,5 @@ export default function Routes() {
       </Switch>
     </BrowserRouter>
   );
-}
+
+export default Routes;

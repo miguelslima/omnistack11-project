@@ -59,10 +59,16 @@
 }
 
 .profile-container ul li button {
+  border-radius: 4px;
   position: absolute;
   right: 24px;
   top: 24px;
   border: 0;
+}
+
+.profile-container ul li button.edit {
+  position: absolute;
+  top: 60px;
 }
 
 .profile-container ul li button:hover {

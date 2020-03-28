@@ -8,8 +8,9 @@
 }
 
 body {
+  background: #333;
+  color: white;
   font: 400 14px Roboto, sans-serif;
-  background: #f0f0f5;
   -webkit-font-smoothing: antialiased;
 }
 
@@ -59,7 +60,7 @@ form textarea {
 }
 
 .button:hover {
-  filter: brightness(80%);
+  filter: brightness(70%);
 }
 
 .back-link {

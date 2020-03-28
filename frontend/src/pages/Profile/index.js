@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useHistory } from 'react-router-dom';
-import { FiPower, FiTrash2 } from 'react-icons/fi';
+import { FiPower, FiTrash2, FiEdit } from 'react-icons/fi';
+
 
 import api from '../../services/api';
 import './styles.css';
@@ -27,7 +28,7 @@ export default function Profile() {
 
   async function handleDeleteIncident(id) {
     try {
-      await api.delete(`incidents/$id`, {
+      await api.delete(`incidents/${id}`, {
         headers: {
           Authorization: ongId,
         }
@@ -36,6 +37,15 @@ export default function Profile() {
       setIncidents(incidents.filter(incident => incident.id !== id));
     } catch {
       alert('Error ao deletar caso, tente novamente');
+    }
+  }
+
+  async function handleEditIncident(id) {
+    try {
+
+      console.log("Chamando Edit")
+    } catch (err) {
+      alert('Erro ao encontrar o caso, tente novamente!')
     }
   }
 
@@ -72,7 +82,11 @@ export default function Profile() {
             <p>{Intl.NumberFormat( 'pt-BR', {style: 'currency', currency: 'BRL'}).format(incident.value)}</p>
   
             <button onClick={() => handleDeleteIncident(incident.id)} type="button">
-              <FiTrash2 size={20} color="A8A8B3" />
+              <FiTrash2 size={20} color="A8A8B9" />
+            </button>
+
+            <button onClick={() => handleEditIncident(incident.id)} className="edit" type="button">
+              <FiEdit size={20} color="A8A8B9"/>
             </button>
           </li>
         ))}
