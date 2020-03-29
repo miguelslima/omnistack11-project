@@ -10,6 +10,19 @@ const Theme = styled.footer`
   display: flex;
   justify-content: center;
   font-size: 20px;
+  html {
+    height: 100%;
+    min-height: 100%;
+  }
+  body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+    }
+
+  footer {
+      margin-top: auto;
+  }
   a {
     text-decoration: none;
     color: white;

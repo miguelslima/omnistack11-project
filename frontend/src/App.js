@@ -23,7 +23,7 @@ class App extends Component {
   render() {
 
     return (
-      
+      <div>
         <ThemeContext.Provider value={this.state}>
           <ThemeSwitcher toggleTheme={this.toggleTheme}/>
           <ThemeContext.Consumer>
@@ -36,7 +36,7 @@ class App extends Component {
             )}
           </ThemeContext.Consumer>
         </ThemeContext.Provider>
-
+      </div>
     );
   } 
 }

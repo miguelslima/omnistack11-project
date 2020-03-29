@@ -33,7 +33,7 @@ export default function Profile() {
           Authorization: ongId,
         }
       });
-
+      
       setIncidents(incidents.filter(incident => incident.id !== id));
     } catch {
       alert('Error ao deletar caso, tente novamente');
@@ -42,8 +42,14 @@ export default function Profile() {
 
   async function handleEditIncident(id) {
     try {
+      await api.put(`/incidents/${id}`, {
+        headers: {
+          Authorization: ongId,
+        }
+      });
 
-      console.log("Chamando Edit")
+      localStorage.put(`incidents/${id}`);
+
     } catch (err) {
       alert('Erro ao encontrar o caso, tente novamente!')
     }
@@ -55,8 +61,9 @@ export default function Profile() {
     history.push('/');
   }
 
-  const Theme = styled.body`
+  const Theme = styled.div`
     background: ${props => props.theme.theme.background};
+    color: ${props => props.theme.theme.color};
   `
 
   return(

@@ -29,9 +29,9 @@ export default function Logon() {
     }
   }
 
-  const Theme = styled.body`
+  const Theme = styled.div`
     background: ${props => props.theme.theme.background};
-    color: ${props => props.theme.theme.color}
+    color: ${props => props.theme.theme.color};
   `
     
   return (

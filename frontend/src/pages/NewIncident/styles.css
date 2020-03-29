@@ -27,6 +27,7 @@
 }
 
 .new-incident-container .content section h1 {
+  color: red;
   margin: 64px 0 32px;
   font-size: 32px;
 }
@@ -41,6 +42,17 @@
   width: 100%;
   max-width: 450px;
 }
+
+.new-incident-container .content form input:placeholder-shown,
+.new-incident-container .content form textarea:placeholder-shown {
+  border: 1px solid red;
+}
+
+.new-incident-container .content form input:focus,
+.new-incident-container .content form textarea:focus  {
+  border: 1px solid green;
+}
+
 
 .new-incident-container .content form input,
 .new-incident-container .content form textarea {

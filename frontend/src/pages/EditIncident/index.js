@@ -9,7 +9,7 @@ import './styles.css';
 
 import logoImg from '../../assets/logo.svg';
 
-export default function NewIncident() {
+export default function EditIncident() {
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
   const [value, setValue] = useState('');

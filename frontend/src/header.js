@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 import './styles/themes/dark.css'
 
-const Theme = styled.body`
+const Theme = styled.div`
   background: ${props => props.theme.theme.background};
 `
 

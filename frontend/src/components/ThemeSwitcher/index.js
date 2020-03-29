@@ -1,35 +1,42 @@
-import React, { useContext } from 'react';
-import Switch from 'react-switch';
-import styled, { ThemeContext} from 'styled-components';
+import React from 'react';
+import styled from 'styled-components';
 
 const Theme = styled.div`
-  padding: 20px;
-  display: flex;
+  padding: 20px;  
   align-items: center;
+  div {
+    display: flex;
+  }
+  button {
+    background: #555;
+    color: white;
+    width: 130px;
+    height: 30px;
+    border: none;
+    border-radius: 10px;
+    align-items: center;
+  }
+  button:hover {
+    background: white;
+    color: black;
+  }
   p {
     color: #E02041;
     font-weight: bold;
     font-size: 20px;
-    margin: 0 50px;
+    margin: 0 30px;
   }
 `
 
 const ThemeSwitcher = ({toggleTheme}) => (
   
-    <Theme class="theme">
+    <Theme>
       
-      <p>Alterar tema: </p>
-      <Switch 
-        onChange={toggleTheme}
-        checked={true}
-        checkedIcon={false}
-        uncheckedIcon={false}
-        height={10}
-        width={40}
-        handleDiameter={20}
-        offColor="#bbb"
-        onColor="#999"
-      />
+        <div className="theme">
+          <p>Alterar tema: </p>
+          <button onClick={toggleTheme}> Mudar tema </button>
+        </div>
+      
     </Theme>
 );
 
