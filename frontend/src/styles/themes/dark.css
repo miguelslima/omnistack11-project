@@ -118,8 +118,21 @@
   }
 
   .logon-container section.form form {
-    margin-top: 90px;
+    margin-top: 80px;
   }
+
+  .logon-container section.form form input {
+    animation-name: fade;
+    animation-duration: 1s;
+  }
+
+  .logon-container section.form form button {
+    animation-name: fade;
+    animation-duration: 1s;
+    animation-delay: 100ms;
+    animation-fill-mode: forwards;
+  }
+
 
   .logon-container section.form input:focus {
     border: 1px solid red;
@@ -128,4 +141,18 @@
   .logon-container section.form form h1 {
     font-size: 32px;
     margin-bottom: 32px;
+  }
+
+
+
+  @keyframes fade {
+    from { 
+      opacity: 0;
+      transform: scale(0);
+      transform: translateX(-35%);
+    } to {
+      opacity: 1;
+      transform: scale(1);
+      transform: translateX(0%);
+    }
   }

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import swal from 'sweetalert';
 import {Link, useHistory } from 'react-router-dom';
 import styled from 'styled-components';
 
@@ -25,7 +26,13 @@ export default function Logon() {
 
       history.push('/profile');
     } catch (err) {
-      alert('Falha no login!');
+      swal({
+        title: 'Falha no login!',
+        text: 'Corrija seus dados e entre novamente!',
+        icon: 'error',
+        button: true,
+        dangerMode: true,
+      })
     }
   }
 

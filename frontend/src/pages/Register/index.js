@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import { FiArrowLeft } from 'react-icons/fi';
 import styled from 'styled-components';
+import swal from 'sweetalert';
 
 import api from '../../services/api';
 import './styles.css';
@@ -31,11 +32,23 @@ export default function Register() {
     try {
       const response = await api.post('ongs', data);
   
-      alert(`Seu ID de acesso: ${response.data.id}`)  
+      swal({
+        title: `Seu ID de acesso é: ${response.data.id}`,
+        text: "Grave o seu ID para efetuar o login na página!",
+        icon: "success",
+        button: true,
+        dangerMode: true,
+      });  
 
       history.push('/');
     } catch (err) {
-      alert('Erro no cadastro, tente novamente');
+      swal({
+        title: "Falha ao realizar o cadastro!",
+        text: "Corrija os dados e tente novamente!",
+        icon: "error",
+        button: true,
+        dangerMode: true,
+      });
     }
   }
 

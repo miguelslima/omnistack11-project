@@ -24,6 +24,7 @@ class App extends Component {
 
     return (
       <div>
+        
         <ThemeContext.Provider value={this.state}>
           <ThemeSwitcher toggleTheme={this.toggleTheme}/>
           <ThemeContext.Consumer>

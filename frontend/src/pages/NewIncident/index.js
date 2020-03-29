@@ -32,7 +32,7 @@ export default function NewIncident() {
           Authorization: ongId,
         }
       })
-
+      
       history.push('/profile');
     } catch (err) {
       alert('Erro ao cadastrar caso, tente novamente');
@@ -49,7 +49,8 @@ export default function NewIncident() {
   return (
     <Theme>
       <div className="new-incident-container">
-       
+
+
         <div className="content">
           <section>
             <img src={logoImg} alt="Be The Hero"/>
@@ -67,7 +68,6 @@ export default function NewIncident() {
           <form onSubmit={handleNewIncident}>
             <input  
               placeholder="Título do Caso"
-              autoFocus
               value={title}
               onChange={ e => setTitle(e.target.value)}
             />

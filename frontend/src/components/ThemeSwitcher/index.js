@@ -29,10 +29,10 @@ const Theme = styled.div`
 `
 
 const ThemeSwitcher = ({toggleTheme}) => (
-  
+    
     <Theme>
       
-        <div className="theme">
+        <div>
           <p>Alterar tema: </p>
           <button onClick={toggleTheme}> Mudar tema </button>
         </div>
