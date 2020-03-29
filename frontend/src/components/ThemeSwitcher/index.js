@@ -1,17 +1,27 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import Switch from 'react-switch';
-import styled from 'styled-components';
+import styled, { ThemeContext} from 'styled-components';
 
-const Theme = styled.body`
-  display: inline-flex;
+const Theme = styled.div`
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  p {
+    color: #E02041;
+    font-weight: bold;
+    font-size: 20px;
+    margin: 0 50px;
+  }
 `
 
 const ThemeSwitcher = ({toggleTheme}) => (
-    <div class="thema">
+  
+    <Theme class="theme">
+      
       <p>Alterar tema: </p>
       <Switch 
         onChange={toggleTheme}
-        checked={false}
+        checked={true}
         checkedIcon={false}
         uncheckedIcon={false}
         height={10}
@@ -20,7 +30,7 @@ const ThemeSwitcher = ({toggleTheme}) => (
         offColor="#bbb"
         onColor="#999"
       />
-    </div>
+    </Theme>
 );
 
 export default ThemeSwitcher;

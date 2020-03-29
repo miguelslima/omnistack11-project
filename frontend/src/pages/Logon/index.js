@@ -6,7 +6,6 @@ import { FiLogIn } from 'react-icons/fi';
 
 import api from '../../services/api';
 
-import '../../styles/global.js'
 
 import logoImg from '../../assets/logo.svg';
 import heroesImg from '../../assets/heroes.png'
@@ -32,6 +31,7 @@ export default function Logon() {
 
   const Theme = styled.body`
     background: ${props => props.theme.theme.background};
+    color: ${props => props.theme.theme.color}
   `
     
   return (

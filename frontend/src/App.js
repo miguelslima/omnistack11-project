@@ -6,8 +6,8 @@ import { ThemeProvider } from 'styled-components';
 
 import Header from './header';
 import Routes from './routes';
+import Footer from './footer';
 
-import './styles/global'
 
 class App extends Component {
   state = {
@@ -30,7 +30,8 @@ class App extends Component {
             {theme => (
               <ThemeProvider theme={theme}>
                 <Header theme={theme} />
-                <Routes theme={theme} />
+                <Routes />
+                <Footer />
               </ThemeProvider>
             )}
           </ThemeContext.Consumer>
