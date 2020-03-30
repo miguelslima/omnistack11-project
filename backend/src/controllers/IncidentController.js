@@ -38,6 +38,53 @@ module.exports = {
 
     return response.json({ id });
   },
+
+  async show(request, response) {
+    const { id } = request.params;
+
+    const ongs_id = await connection('ongs')
+        .select('id')
+        .first();
+
+    if (!ongs_id) {
+        return response.status(401).json({
+            error: 'Not authorized.'
+        });
+    }
+
+    const incident = await connection('incidents')
+        .where('id', id)
+        .select('*')
+        .first();
+
+    return response.json(incident);
+  },
+
+  async update(request, response) {
+      const { id } = request.params;
+      const { title, description, value } = request.body;
+      
+      const ong = await connection('ongs')
+          .select('id')
+          .first();
+
+      if (!ong) {
+          return response.status(401).json({
+              error: 'Not authorized.'
+          });
+      }
+
+      const ongUpdated = await connection('incidents')
+          .where('ong_id', ong.id)
+          .where('id', id)
+          .update({
+              title,
+              description,
+              value,
+          });
+
+      return response.json(ongUpdated);
+  },
   
   async delete(request, response) {
     const { id } = request.params;
@@ -57,4 +104,4 @@ module.exports = {
     return response.status(204).send();
 
   }
-}
+} 
