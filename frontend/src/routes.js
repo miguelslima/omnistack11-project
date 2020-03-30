@@ -14,8 +14,8 @@ export default function Routes () {
         <Route path="/register" component={Register} />
 
         <Route path="/profile" component={Profile} />
-        <Route path="/incidents/new" component={NewIncident} />
-        <Route path="/incidents/edit/:id" component={EditIncident} />
+        <Route path="/incident/"  component={NewIncident} />
+        <Route path="/incidents/:id" exact component={EditIncident} />
     </BrowserRouter>
   );
 };

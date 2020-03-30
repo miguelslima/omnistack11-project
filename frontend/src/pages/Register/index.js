@@ -52,12 +52,13 @@ export default function Register() {
     }
   }
 
-  const Theme = styled.body`
-    background: ${props => props.theme.theme.background};
-  `
+  // const Theme = styled.body`
+  //   background: ${props => props.theme.theme.background};
+  //   color: ${props => props.theme.theme.color};
+  // `
 
   return (
-    <Theme>
+    
       <div className="register-container">
         <div className="content">
           <section>
@@ -109,6 +110,6 @@ export default function Register() {
           </form>
         </div>
       </div>
-    </Theme>
+
   )
 }

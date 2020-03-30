@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import { FiArrowLeft } from 'react-icons/fi';
+import swal from 'sweetalert';
 import styled from 'styled-components';
 
 import api from '../../services/api';
@@ -19,7 +20,8 @@ export default function NewIncident() {
   const ongId = localStorage.getItem('ongId');
 
   async function handleNewIncident(e) {
-    
+    e.preventDefault();
+
     const data = {
       title,
       description,
@@ -27,11 +29,18 @@ export default function NewIncident() {
     };
 
     try {
-      await api.post('/incidents', data, {
+      await api.post('/incident', data, {
         headers: {
           Authorization: ongId,
         }
       })
+
+      swal({
+        title: 'Caso editado com sucesso!',
+        icon: "success",
+        button: true,
+        dangerMode: true,
+      });  
       
       history.push('/profile');
     } catch (err) {
@@ -40,14 +49,13 @@ export default function NewIncident() {
 
   }
 
-  const Theme = styled.div`
-    background: ${props => props.theme.theme.background};
-    color: ${props => props.theme.theme.color};
-
-  `
+  // const Theme = styled.div`
+  //   background: ${props => props.theme.theme.background};
+  //   color: ${props => props.theme.theme.color};
+  // `
 
   return (
-    <Theme>
+  
       <div className="new-incident-container">
 
 
@@ -86,6 +94,6 @@ export default function NewIncident() {
           </form>
         </div>
       </div>
-    </Theme>
+
   )
 }

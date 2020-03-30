@@ -40,20 +40,13 @@ export default function Profile() {
     }
   }
 
-  async function handleEditIncident(id) {
-    try {
-      await api.put(`/incidents/${id}`, {
-        headers: {
-          Authorization: ongId,
-        }
-      });
+  function handleEditIncident(incident) {
+    const id = incident.id
+    history.push(`/incidents/${id}`, {
+        id: incident.id
+    });
+}
 
-      localStorage.put(`incidents/${id}`);
-
-    } catch (err) {
-      alert('Erro ao encontrar o caso, tente novamente!')
-    }
-  }
 
   function handleLogout() {
     localStorage.clear();
@@ -73,7 +66,7 @@ export default function Profile() {
           <img src={logoImg} alt="Be The Hero"/>
           <span>Bem vinda, {ongName}</span>
 
-          <Link className="button" to="/incidents/new"> Cadastrar novo caso </Link>
+          <Link className="button" to="/incident"> Cadastrar novo caso </Link>
           <button onClick={handleLogout} type="button">
             <FiPower size={18} color="#E02041" />
           </button>
@@ -97,7 +90,7 @@ export default function Profile() {
                 <FiTrash2 size={20} color="A8A8B9" />
               </button>
 
-              <button onClick={() => handleEditIncident(incident.id)} className="edit" type="button">
+              <button onClick={() => handleEditIncident(incident)} className="edit" type="button">
                 <FiEdit size={20} color="A8A8B9"/>
               </button>
             </li>
