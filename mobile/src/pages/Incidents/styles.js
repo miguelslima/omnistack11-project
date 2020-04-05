@@ -1,5 +1,25 @@
 import { StyleSheet } from 'react-native';
 import Constants from 'expo-constants';
+import styled from 'styled-components/native';
+import { FontAwesome } from '@expo/vector-icons';
+
+export const ThemeToggle = styled.TouchableOpacity`
+  height: 26px;
+  width: 26px;
+  margin-left: 16px;
+  align-items: center;
+  justify-content: center;
+`;
+
+export const Icon = styled(FontAwesome)`
+  color: ${({ theme }) => theme.toggleIcon};
+`;
+
+export const Header = styled.View`
+  /* align-items: center; */
+  justify-content: space-between;
+  flex: 1;
+`;
 
 export default StyleSheet.create({
   container: {

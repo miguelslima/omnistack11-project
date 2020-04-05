@@ -7,6 +7,7 @@ import * as MailComposer from 'expo-mail-composer';
 import logoImg from "../../assets/logo.png"
 
 import styles from './styles';
+import SafeAreaContainer from '../../components/SafeAreaContainer';
 
 export default function Incidents() {
   const navigation = useNavigation();
@@ -32,7 +33,7 @@ export default function Incidents() {
   }
 
   return(
-    <View style={styles.container}>
+    <SafeAreaContainer>
       <View style={styles.header}>
         <Image source={logoImg} />
         
@@ -48,7 +49,6 @@ export default function Incidents() {
         <Text style={styles.incidentProperty}>CASO:</Text>
         <Text style={styles.incidentValue}>{incident.title}</Text>
 
-        <Text style={styles.incidentProperty}>VALOR:</Text>
         <Text style={styles.incidentProperty}>VALOR:</Text>
             <Text style={styles.incidentValue}>
               {Intl.NumberFormat('pt-BR', { 
@@ -75,6 +75,7 @@ export default function Incidents() {
 
         </View>
       </View>
-    </View>
+
+    </SafeAreaContainer>
   );
 }
